@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ksimka/dbff.png?branch=master)](https://travis-ci.org/ksimka/dbff)
+[![Build Status](https://travis-ci.org/ksimka/dbff.png?branch=master)](https://travis-ci.org/ksimka/dbff) [![Code Coverage](https://scrutinizer-ci.com/g/ksimka/dbff/badges/coverage.png?s=f5495d3cc09ef8186aa5ef1f8241e1beb46848f4)](https://scrutinizer-ci.com/g/ksimka/dbff/) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ksimka/dbff/badges/quality-score.png?s=4b1d473600078d219306e5ae6adf713a75d0d062)](https://scrutinizer-ci.com/g/ksimka/dbff/)
 
 # Dbff
 
