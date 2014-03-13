@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ksimka/dbff.png?branch=master)](https://travis-ci.org/ksimka/dbff)
+
 # Dbff
 
 Dbff (mix of _db_ and _diff_, pronounced like _dibiff_) — tool for comparing database structures. Currently available only for MySQL.
