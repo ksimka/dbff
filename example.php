@@ -254,10 +254,12 @@ $db1 = $dbBuilder->createFromString(
 );
 $db2 = $dbBuilder->createFromDbAndTablesStrings(
     "create database `database` default character set utf8",
-    "CREATE TABLE `User` (
-        `name` VARCHAR(100),
-        PRIMARY KEY (`name`),
-    )"
+    [
+        "CREATE TABLE `User` (
+            `name` VARCHAR(100),
+            PRIMARY KEY (`name`),
+        )"
+    ]
 );
 showDbff($dbffer->compare($db1, $db2), 'Databases');
 
