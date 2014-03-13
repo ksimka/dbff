@@ -52,7 +52,7 @@ class FloatProps extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['length', 'decimal', 'unsigned', 'zerofill'];

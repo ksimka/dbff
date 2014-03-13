@@ -40,7 +40,7 @@ class IntProps extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['length', 'unsigned', 'zerofill'];

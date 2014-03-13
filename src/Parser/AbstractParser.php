@@ -36,7 +36,7 @@ abstract class AbstractParser implements ParserInterface
      * - replaces multiple spaces and newlines with one space
      * - removes conditional comments
      *
-     * @param $str
+     * @param string $str
      * @return string
      */
     final protected function filterString($str) {
@@ -53,7 +53,7 @@ abstract class AbstractParser implements ParserInterface
     /**
      * Does parsing itself
      *
-     * @param $str
+     * @param string $str
      * @return array
      */
     abstract protected function doParse($str);
