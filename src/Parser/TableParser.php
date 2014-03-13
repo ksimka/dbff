@@ -28,8 +28,28 @@ class TableParser extends AbstractParser
         // columns and indices
         $columns = [];
         $indices = [];
-        $createDefinition = $matches[4];
-        foreach (explode(',', $createDefinition) as $def) {
+
+        // We can't just split this by comma, commas can be between braces (enum, index fields, etc.)
+        // The simplest way for me is replace commas between braces, explode by commas, replace backwards
+        // TODO: refactor this crazyness
+        $columnsAndIndiciesDef = $matches[4];
+        $bracesMatches = [];
+        preg_match_all("~(\([^\)]+?,[^\)]+?(,[^\)]+?)*?\))~", $columnsAndIndiciesDef, $bracesMatches);
+        if (isset($bracesMatches[0])) {
+            foreach ($bracesMatches[0] as $i => $bracesMatch) {
+                $columnsAndIndiciesDef = str_replace($bracesMatch, "<{$i}>", $columnsAndIndiciesDef);
+            }
+            $columnsAndIndicies = explode(',', $columnsAndIndiciesDef);
+            foreach ($columnsAndIndicies as &$columnOrIndex) {
+                foreach ($bracesMatches[0] as $i => $bracesMatch) {
+                    $columnOrIndex = str_replace("<{$i}>", $bracesMatch, $columnOrIndex);
+                }
+            }
+        } else {
+            $columnsAndIndicies = explode(',', $columnsAndIndiciesDef);
+        }
+
+        foreach ($columnsAndIndicies as $def) {
             $def = trim($def);
             if (
                 stripos($def, 'primary key') === 0

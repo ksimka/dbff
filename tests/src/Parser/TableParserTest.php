@@ -58,6 +58,28 @@ class TableParserTest extends AbstractParserTest
                     'autoinc' => 0,
                 ],
             ],
+            [
+                "CREATE TABLE Post (
+                    id INT(10),
+                    sort ENUM('1st','2nd','3rd') DEFAULT '1st',
+                    PRIMARY KEY (id,sort)
+                )",
+                [
+                    'name' => 'Post',
+                    'columns' => [
+                        'id INT(10)',
+                        "sort ENUM('1st','2nd','3rd') DEFAULT '1st'",
+                    ],
+                    'indices' => [
+                        "PRIMARY KEY (id,sort)",
+                    ],
+                    'temporary' => false,
+                    'charset' => '',
+                    'collate' => '',
+                    'engine' => '',
+                    'autoinc' => 0,
+                ],
+            ],
         ];
     }
 
