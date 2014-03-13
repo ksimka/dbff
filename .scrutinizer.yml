@@ -1,5 +1,6 @@
 inherit: true
-
+before_commands:
+    - 'composer install --no-interaction --prefer-source'
 tools:
     php_code_coverage:
         enabled: true
