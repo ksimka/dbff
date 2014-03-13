@@ -45,7 +45,7 @@ class CharProps extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['length', 'charset', 'collate'];

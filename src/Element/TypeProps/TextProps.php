@@ -45,7 +45,7 @@ class TextProps extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['binary', 'charset', 'collate'];
