@@ -3,8 +3,7 @@ inherit: true
 tools:
     php_code_coverage:
         enabled: true
-        test_command: phpunit
-        config_path: tests
+        test_command: phpunit -c tests/
     php_code_sniffer: true
     php_cpd: true
     php_cs_fixer: true
