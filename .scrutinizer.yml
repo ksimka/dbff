@@ -1,8 +1,4 @@
 imports:
   - php
-before_commands:
-  - 'composer install --no-interaction --prefer-source'
 tools:
-  php_code_coverage:
-    enabled: true
-    test_command: phpunit
+  php_code_coverage: true
