@@ -110,6 +110,10 @@ class TypeParser extends AbstractParser
         $typeGroup = $this->typesRevIndex[$type];
         $typeDef = $this->typesDef[$typeGroup];
         $matches = $this->match($typeDef['regex'], $str);
+        // Invalid type def
+        if (!$matches) {
+            return false;
+        }
         // Remove 0-th element
         array_shift($matches);
         // Intersect with schema
