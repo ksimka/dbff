@@ -36,7 +36,7 @@ class Type extends DbffableElement
      * @return array
      */
     public function getValues() {
-        return [$this->name, $this->props];
+        return [$this->type, $this->props];
     }
 
     /**
