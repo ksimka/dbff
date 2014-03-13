@@ -1,0 +1,26 @@
+{
+    "name": "dbff/dbff-core",
+    "description": "Diff for DB",
+    "keywords": [
+        "mysql",
+        "db",
+        "database",
+        "diff"
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "license": "",
+    "authors": [
+        {
+            "name": "ksimka",
+            "email": "m.kochkin@wamba.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dbff\\": "src/"
+        }
+    }
+}
