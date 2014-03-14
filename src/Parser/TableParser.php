@@ -30,35 +30,16 @@ class TableParser extends AbstractParser
         $indices = [];
 
         // We can't just split this by comma, commas can be between braces (enum, index fields, etc.)
-        // The simplest way for me is replace commas between braces, explode by commas, replace backwards
-        // TODO: refactor this crazyness
         $columnsAndIndiciesDef = $matches[4];
-        $bracesMatches = [];
-        preg_match_all("~(\([^\)]+?,[^\)]+?(,[^\)]+?)*?\))~", $columnsAndIndiciesDef, $bracesMatches);
-        if (isset($bracesMatches[0])) {
-            foreach ($bracesMatches[0] as $i => $bracesMatch) {
-                $columnsAndIndiciesDef = str_replace($bracesMatch, "<{$i}>", $columnsAndIndiciesDef);
-            }
-            $columnsAndIndicies = explode(',', $columnsAndIndiciesDef);
-            foreach ($columnsAndIndicies as &$columnOrIndex) {
-                foreach ($bracesMatches[0] as $i => $bracesMatch) {
-                    $columnOrIndex = str_replace("<{$i}>", $bracesMatch, $columnOrIndex);
-                }
-            }
-        } else {
-            $columnsAndIndicies = explode(',', $columnsAndIndiciesDef);
-        }
+        preg_match_all(
+            "~((?:[^\(,]+)|(?:[^\(,]*\([^)]*\)[^\(,]*)+)(?:,|$)~",
+            $columnsAndIndiciesDef,
+            $columnsAndIndicies
+        );
 
-        foreach ($columnsAndIndicies as $def) {
+        foreach ($columnsAndIndicies[1] as $def) {
             $def = trim($def);
-            if (
-                stripos($def, 'primary key') === 0
-                || stripos($def, 'index') === 0
-                || stripos($def, 'key') === 0
-                || stripos($def, 'unique key') === 0
-                || stripos($def, 'fulltext key') === 0
-                || stripos($def, 'spatial key') === 0
-            ) {
+            if (preg_match('~^(primary key|index|key|unique key|fulltext key|spatial key)~ui', $def)) {
                 $indices[] = $def;
             } else {
                 $columns[] = $def;
