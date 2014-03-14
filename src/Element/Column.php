@@ -47,7 +47,7 @@ class Column extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['type', 'isnull', 'default', 'isautoinc'];

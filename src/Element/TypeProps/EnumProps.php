@@ -47,7 +47,7 @@ class EnumProps extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['values', 'charset', 'collate'];

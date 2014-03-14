@@ -41,7 +41,7 @@ class Index extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['type', 'columns', 'algo'];

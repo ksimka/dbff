@@ -24,14 +24,14 @@ class BinProps extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return integer[]
      */
     public function getValues() {
         return [$this->length];
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['length'];

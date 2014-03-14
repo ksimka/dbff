@@ -12,11 +12,11 @@ use Dbff\DbffableElement;
 class Type extends DbffableElement
 {
     /**
-     * Name of type, it's not the name of DbffableElement
+     * Name of type
      *
      * @var string
      */
-    private $name;
+    private $type;
 
     /**
      * @var \Dbff\DbffableElement
@@ -24,11 +24,11 @@ class Type extends DbffableElement
     private $props;
 
     /**
-     * @param $name
+     * @param $type
      * @param DbffableElement $props
      */
-    public function __construct($name, DbffableElement $props) {
-        $this->name = $name;
+    public function __construct($type, DbffableElement $props) {
+        $this->type = $type;
         $this->props = $props;
     }
 
@@ -36,11 +36,11 @@ class Type extends DbffableElement
      * @return array
      */
     public function getValues() {
-        return [$this->name, $this->props];
+        return [$this->type, $this->props];
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['name', 'props'];

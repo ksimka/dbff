@@ -85,7 +85,7 @@ class Table extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['columns', 'indices', 'charset', 'collate', 'engine', 'autoinc_val'];

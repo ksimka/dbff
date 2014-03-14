@@ -48,7 +48,7 @@ class Database extends DbffableElement
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getSchema() {
         return ['tables', 'charset', 'collate'];
