@@ -21,9 +21,9 @@ class TableParserTest extends AbstractParserTest
                     INDEX `user` (`anketa_id`)
                 )
                 ENGINE=InnoDB
+                AUTO_INCREMENT=51
                 default charset=utf8
-                COLLATE=utf8_unicode_ci
-                AUTO_INCREMENT=51;",
+                COLLATE=utf8_unicode_ci;",
                 [
                     'name' => 'Post',
                     'columns' => [

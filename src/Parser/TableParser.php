@@ -12,13 +12,15 @@ namespace Dbff\Parser;
 class TableParser extends AbstractParser
 {
     /**
+     * @todo Move table options to separate TableOptions element and parse them in any order
+     *
      * @param $str
      * @return array|bool
      */
     protected function doParse($str) {
         $matches = $this->match(
             "create( temporary)? table( if not exists)? (:name) \((.+)\)"
-            . "( engine=(\w+))?( default charset=(\w+))?( collate=(\w+))?( auto_increment=(\d+))?",
+            . "( engine=(\w+))?( auto_increment=(\d+))?( default charset=(\w+))?( collate=(\w+))?",
             $str
         );
         if (!$matches) {
