@@ -54,9 +54,9 @@ class TableParser extends AbstractParser
             'columns' => $columns,
             'indices' => $indices,
             'engine' => !empty($matches[6]) ? $matches[6] : '',
-            'charset' => !empty($matches[8]) ? $matches[8] : '',
-            'collate' => !empty($matches[10]) ? $matches[10] : '',
-            'autoinc' => !empty($matches[12]) ? (int)$matches[12] : 0,
+            'charset' => !empty($matches[10]) ? $matches[10] : '',
+            'collate' => !empty($matches[12]) ? $matches[12] : '',
+            'autoinc' => !empty($matches[8]) ? (int)$matches[8] : 0,
         ];
     }
 } 
