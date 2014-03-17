@@ -17,10 +17,10 @@ class IndexParser extends AbstractParser
      */
     protected function doParse($str) {
         if (stripos($str, 'primary key') === 0) {
-            $matches = $this->match("(primary key)()( using (btree|hash))? \((.+)\)", $str);
+            $matches = $this->match("(primary key)() \((.+)\)( using (btree|hash))?", $str);
         } else {
             $matches = $this->match(
-                "(index|key|unique key|fulltext key|spatial key) (:name)( using (btree|hash))? \((.+)\)",
+                "(index|key|unique key|fulltext key|spatial key) (:name) \((.+)\)( using (btree|hash))?",
                 $str
             );
         }
@@ -36,13 +36,13 @@ class IndexParser extends AbstractParser
         }
 
         $name = trim($matches[2], '`');
-        $columns = array_map(function($v) {return trim($v, ' `'); }, explode(',', $matches[5]));
+        $columns = array_map(function($v) {return trim($v, ' `'); }, explode(',', $matches[3]));
 
         return [
             'name' => $name,
             'type' => $type,
             'columns' => $columns,
-            'algo' => $matches[4],
+            'algo' => empty($matches[5]) ? '' : strtolower($matches[5]),
         ];
     }
 } 

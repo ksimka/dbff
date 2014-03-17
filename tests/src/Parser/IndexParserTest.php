@@ -24,6 +24,15 @@ class IndexParserTest extends AbstractParserTest
                 ],
             ],
             [
+                'PRIMARY KEY (`id`) using HASH',
+                [
+                    'name' => '',
+                    'type' => 'primary',
+                    'columns' => ['id'],
+                    'algo' => 'hash',
+                ],
+            ],
+            [
                 'INDEX ind_name (`id`, `name`)   ',
                 [
                     'name' => 'ind_name',
@@ -33,7 +42,7 @@ class IndexParserTest extends AbstractParserTest
                 ],
             ],
             [
-                '  INDEX `some name!` using btree (`index`, name)',
+                '  INDEX `some name!` (`index`, name) using btree',
                 [
                     'name' => 'some name!',
                     'type' => 'index',
