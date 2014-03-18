@@ -111,6 +111,7 @@ class TypeParserTest extends AbstractParserTest
             [''],
             ['unknown'],
             ['INTEG'],
+            ['INT bla-bla'],
         ];
     }
 
