@@ -18,4 +18,4 @@ interface BuilderInterface
      * @return DbffableElement
      */
     public function createFromString($str);
-} 
+}

@@ -159,4 +159,3 @@ class TypeParser extends AbstractParser
         return $schema;
     }
 }
-

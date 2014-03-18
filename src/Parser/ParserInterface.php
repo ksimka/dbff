@@ -16,4 +16,4 @@ interface ParserInterface
      * @return array|bool
      */
     public function parse($str);
-} 
+}
