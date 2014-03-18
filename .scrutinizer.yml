@@ -2,7 +2,9 @@ inherit: true
 before_commands:
     - 'composer install --no-interaction --prefer-source'
 tools:
-    external_code_coverage: true
+    external_code_coverage:
+        enabled: true
+        timeout: 600
     php_code_sniffer:
         enabled: true
         config:
