@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\BinProps;
 
 /**
  * BinProps element test
- * 
+ *
  * @package Dbff\Element
  */
 class BinPropsTest extends AbstractElementTest

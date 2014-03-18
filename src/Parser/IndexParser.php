@@ -15,7 +15,8 @@ class IndexParser extends AbstractParser
      * @param $str
      * @return array|bool
      */
-    protected function doParse($str) {
+    protected function doParse($str)
+    {
         if (stripos($str, 'primary key') === 0) {
             $matches = $this->match("(primary key)() \((.+)\)( using (btree|hash))?", $str);
         } else {
@@ -36,7 +37,12 @@ class IndexParser extends AbstractParser
         }
 
         $name = trim($matches[2], '`');
-        $columns = array_map(function($v) {return trim($v, ' `'); }, explode(',', $matches[3]));
+        $columns = array_map(
+            function ($v) {
+                return trim($v, ' `');
+            },
+            explode(',', $matches[3])
+        );
 
         return [
             'name' => $name,
@@ -45,4 +51,4 @@ class IndexParser extends AbstractParser
             'algo' => empty($matches[5]) ? '' : strtolower($matches[5]),
         ];
     }
-} 
+}

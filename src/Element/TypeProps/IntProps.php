@@ -26,7 +26,8 @@ class IntProps extends DbffableElement
      */
     private $zerofill;
 
-    public function __construct($length, $unsigned, $zerofill) {
+    public function __construct($length, $unsigned, $zerofill)
+    {
         $this->length = (int)$length;
         $this->unsigned = (bool)$unsigned;
         $this->zerofill = (bool)$zerofill;
@@ -35,14 +36,16 @@ class IntProps extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->length, $this->unsigned, $this->zerofill];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['length', 'unsigned', 'zerofill'];
     }
 }

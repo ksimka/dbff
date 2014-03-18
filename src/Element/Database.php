@@ -7,7 +7,7 @@ use Dbff\DbffableElement;
 
 /**
  * Database element
- * 
+ *
  * @package Dbff\Element
  */
 class Database extends DbffableElement
@@ -33,7 +33,8 @@ class Database extends DbffableElement
      * @param $charset
      * @param $collate
      */
-    public function __construct($name, DbffableCollection $tables, $charset, $collate) {
+    public function __construct($name, DbffableCollection $tables, $charset, $collate)
+    {
         $this->setName($name);
         $this->tables = $tables;
         $this->charset = (string)$charset;
@@ -43,14 +44,16 @@ class Database extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->tables, $this->charset, $this->collate];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['tables', 'charset', 'collate'];
     }
 }

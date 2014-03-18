@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\EmptyProps;
 
 /**
  * Column element test
- * 
+ *
  * @package Dbff\Element
  */
 class ColumnTest extends AbstractElementTest

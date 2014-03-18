@@ -6,7 +6,7 @@ use Dbff\DbffableElement;
 
 /**
  * Type element
- * 
+ *
  * @package Dbff\Element
  */
 class Type extends DbffableElement
@@ -27,7 +27,8 @@ class Type extends DbffableElement
      * @param $type
      * @param DbffableElement $props
      */
-    public function __construct($type, DbffableElement $props) {
+    public function __construct($type, DbffableElement $props)
+    {
         $this->type = $type;
         $this->props = $props;
     }
@@ -35,14 +36,16 @@ class Type extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->type, $this->props];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['name', 'props'];
     }
 }

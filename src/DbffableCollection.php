@@ -4,7 +4,7 @@ namespace Dbff;
 
 /**
  * Collection of dbffable elements
- * 
+ *
  * @package Dbff
  */
 class DbffableCollection
@@ -17,7 +17,8 @@ class DbffableCollection
     /**
      * @param DbffableElement[] $elements
      */
-    public function __construct(array $elements) {
+    public function __construct(array $elements)
+    {
         array_walk($elements, [$this, 'add']);
     }
 
@@ -28,7 +29,8 @@ class DbffableCollection
      *
      * @param DbffableElement $element
      */
-    public function add(DbffableElement $element) {
+    public function add(DbffableElement $element)
+    {
         $this->elements[$element->getName()] = $element;
     }
 
@@ -38,7 +40,8 @@ class DbffableCollection
      * @param $name
      * @return DbffableElement|null
      */
-    public function get($name) {
+    public function get($name)
+    {
         return isset($this->elements[$name]) ? $this->elements[$name] : null;
     }
 
@@ -47,7 +50,8 @@ class DbffableCollection
      *
      * @return DbffableElement[]
      */
-    public function getAll() {
+    public function getAll()
+    {
         return $this->elements;
     }
 
@@ -56,7 +60,8 @@ class DbffableCollection
      *
      * @return array
      */
-    public function getNames() {
+    public function getNames()
+    {
         return array_keys($this->elements);
     }
 
@@ -65,7 +70,8 @@ class DbffableCollection
      *
      * @return int
      */
-    public function getLength() {
+    public function getLength()
+    {
         return count($this->elements);
     }
-} 
+}

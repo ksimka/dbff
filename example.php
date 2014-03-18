@@ -92,10 +92,24 @@ showDbff($dbffer->compare($col1, $col2), 'Columns');
 $index = new Index('', 'primary', ['id'], 'hash');
 
 $table1 = new Table(
-    'Post', new Collection([$col1, $col2]), new Collection([]), false, '', 'utf8_general_ci', 'InnoDB', 20
+    'Post',
+    new Collection([$col1, $col2]),
+    new Collection([]),
+    false,
+    '',
+    'utf8_general_ci',
+    'InnoDB',
+    20
 );
 $table2 = new Table(
-    'Post', new Collection([$col1, $col2]), new Collection([$index]), true, '', 'utf8_general_ci', 'InnoDB', 20
+    'Post',
+    new Collection([$col1, $col2]),
+    new Collection([$index]),
+    true,
+    '',
+    'utf8_general_ci',
+    'InnoDB',
+    20
 );
 // temporary field doesn't compare
 
@@ -221,9 +235,9 @@ $table1 = $builder->createFromString(
         PRIMARY KEY (`id`),
         INDEX `user` (`anketa_id`)
     )
-    COLLATE=utf8_unicode_ci
     ENGINE=InnoDB
-    AUTO_INCREMENT=51;"
+    AUTO_INCREMENT=51
+    COLLATE=utf8_unicode_ci;"
 );
 $table2 = $builder->createFromString(
     "CREATE TABLE `Post` (
@@ -264,7 +278,8 @@ $db2 = $dbBuilder->createFromDbAndTablesStrings(
 showDbff($dbffer->compare($db1, $db2), 'Databases');
 
 // simple output helper
-function showDbff($dbff, $comment = '') {
+function showDbff($dbff, $comment = '')
+{
     if ($comment) {
         echo $comment . "\n";
     }

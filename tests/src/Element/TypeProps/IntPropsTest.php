@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\IntProps;
 
 /**
  * IntProps element test
- * 
+ *
  * @package Dbff\Element
  */
 class IntPropsTest extends AbstractElementTest

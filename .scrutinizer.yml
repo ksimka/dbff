@@ -3,9 +3,31 @@ before_commands:
     - 'composer install --no-interaction --prefer-source'
 tools:
     external_code_coverage: true
-    php_code_sniffer: true
+    php_code_sniffer:
+        enabled: true
+        config:
+            standard: psr2
     php_cpd: true
-    php_cs_fixer: true
+    php_cs_fixer:
+        enabled: true
+        config:
+            level: psr2
+            fixers:
+                indentation: true
+                linefeed: true
+                trailing_spaces: true
+                unused_use: true
+                phpdoc_params: true
+                visibility: true
+                return: true
+                short_tag: true
+                braces: false
+                include: false
+                php_closing_tag: true
+                extra_empty_lines: true
+                controls_spaces: false
+                elseif: false
+                eof_ending: true
     php_loc: true
     php_mess_detector: true
     php_pdepend: true

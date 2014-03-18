@@ -12,7 +12,8 @@ class IndexParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerDefs() {
+    public function providerDefs()
+    {
         return [
             [
                 'primary KEY (id)',
@@ -83,7 +84,8 @@ class IndexParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerErrors() {
+    public function providerErrors()
+    {
         return [
             [''],
             ['primary key `name` (id)'],
@@ -96,8 +98,8 @@ class IndexParserTest extends AbstractParserTest
     /**
      * @return IndexParser
      */
-    protected function createParser() {
+    protected function createParser()
+    {
         return new IndexParser();
     }
 }
- 

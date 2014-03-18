@@ -14,14 +14,16 @@ class EmptyProps extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [];
     }
 
     /**
      * @return array
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return [];
     }
 }

@@ -17,7 +17,8 @@ class TableParser extends AbstractParser
      * @param $str
      * @return array|bool
      */
-    protected function doParse($str) {
+    protected function doParse($str)
+    {
         $matches = $this->match(
             "create( temporary)? table( if not exists)? (:name) \((.+)\)"
             . "( engine=(\w+))?( auto_increment=(\d+))?( default charset=(\w+))?( collate=(\w+))?",
@@ -59,4 +60,4 @@ class TableParser extends AbstractParser
             'autoinc' => !empty($matches[8]) ? (int)$matches[8] : 0,
         ];
     }
-} 
+}

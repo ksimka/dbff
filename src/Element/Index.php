@@ -6,7 +6,7 @@ use Dbff\DbffableElement;
 
 /**
  * Index element
- * 
+ *
  * @package Dbff\Element
  */
 class Index extends DbffableElement
@@ -26,7 +26,8 @@ class Index extends DbffableElement
      */
     private $algo;
 
-    public function __construct($name, $type, array $columns, $algo) {
+    public function __construct($name, $type, array $columns, $algo)
+    {
         $this->setName($name);
         $this->type = (string)$type;
         $this->columns = $columns;
@@ -36,14 +37,16 @@ class Index extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->type, $this->columns, $this->algo];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['type', 'columns', 'algo'];
     }
 }

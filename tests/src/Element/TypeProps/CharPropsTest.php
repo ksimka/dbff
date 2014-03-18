@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\CharProps;
 
 /**
  * CharProps element test
- * 
+ *
  * @package Dbff\Element
  */
 class CharPropsTest extends AbstractElementTest

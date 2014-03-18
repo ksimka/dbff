@@ -7,7 +7,7 @@ use Dbff\DbffableElement;
 
 /**
  * Table element
- * 
+ *
  * @package Dbff\Element
  */
 class Table extends DbffableElement
@@ -80,14 +80,16 @@ class Table extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->columns, $this->indices, $this->charset, $this->collate, $this->engine, $this->autoincValue];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['columns', 'indices', 'charset', 'collate', 'engine', 'autoinc_val'];
     }
 }

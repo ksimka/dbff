@@ -8,7 +8,7 @@ use Dbff\Element\Table;
 
 /**
  * Table element builder
- * 
+ *
  * @package Dbff\Builder
  */
 class TableBuilder implements BuilderInterface
@@ -33,7 +33,8 @@ class TableBuilder implements BuilderInterface
      * @param ColumnBuilder $columnBuilder
      * @param IndexBuilder $indexBuilder
      */
-    public function __construct(TableParser $tableParser, ColumnBuilder $columnBuilder, IndexBuilder $indexBuilder) {
+    public function __construct(TableParser $tableParser, ColumnBuilder $columnBuilder, IndexBuilder $indexBuilder)
+    {
         $this->tableParser = $tableParser;
         $this->columnBuilder = $columnBuilder;
         $this->indexBuilder = $indexBuilder;
@@ -45,7 +46,8 @@ class TableBuilder implements BuilderInterface
      * @param string $str
      * @return Table
      */
-    public function createFromString($str) {
+    public function createFromString($str)
+    {
         $struct = $this->tableParser->parse($str);
         if (!$struct) {
             return new Table('', new DbffableCollection([]), new DbffableCollection([]), '', '', '', '', '');
@@ -74,4 +76,4 @@ class TableBuilder implements BuilderInterface
             $struct['autoinc']
         );
     }
-} 
+}

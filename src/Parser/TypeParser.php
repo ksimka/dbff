@@ -77,7 +77,8 @@ class TypeParser extends AbstractParser
     /**
      * Prepare helper lists
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->typesRevIndex = [];
         foreach ($this->typesDef as $type => $def) {
             foreach ($def['names'] as $name) {
@@ -90,7 +91,8 @@ class TypeParser extends AbstractParser
      * @param $str
      * @return array|bool
      */
-    protected function doParse($str) {
+    protected function doParse($str)
+    {
         $matches = [];
         preg_match("~^([a-z]+)~i", $str, $matches);
         $type = isset($matches[1]) ? $matches[1] : null;
@@ -120,7 +122,10 @@ class TypeParser extends AbstractParser
         $schema = array_intersect_key($matches, $typeDef['schema']);
         // Type cast
         $schema = array_map(
-            function($value, $type) { settype($value, $type); return $value; },
+            function ($value, $type) {
+                settype($value, $type);
+                return $value;
+            },
             $schema,
             $typeDef['cast']
         );
@@ -139,12 +144,19 @@ class TypeParser extends AbstractParser
      * @param array $schema
      * @return array
      */
-    private function customize(array $schema) {
+    private function customize(array $schema)
+    {
         if ($schema['group'] == 'enum') {
             // convert to array and trim '
-            $schema['values'] = array_map(function($v) { return trim($v, "'"); }, explode(',', $schema['values']));
+            $schema['values'] = array_map(
+                function ($v) {
+                    return trim($v, "'");
+                },
+                explode(',', $schema['values'])
+            );
         }
 
         return $schema;
     }
-} 
+}
+

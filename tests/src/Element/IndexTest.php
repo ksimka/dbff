@@ -4,7 +4,7 @@ namespace Dbff\Element;
 
 /**
  * Index element test
- * 
+ *
  * @package Dbff\Element
  */
 class IndexTest extends AbstractElementTest

@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\FloatProps;
 
 /**
  * FloatProps element test
- * 
+ *
  * @package Dbff\Element
  */
 class FloatPropsTest extends AbstractElementTest

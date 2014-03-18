@@ -6,7 +6,7 @@ use Dbff\DbffableCollection;
 
 /**
  * Table element test
- * 
+ *
  * @package Dbff\Element
  */
 class TableTest extends AbstractElementTest

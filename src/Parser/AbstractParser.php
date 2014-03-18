@@ -4,7 +4,7 @@ namespace Dbff\Parser;
 
 /**
  * Common structure for all dbff parsers
- * 
+ *
  * @package Dbff\Parser
  */
 abstract class AbstractParser implements ParserInterface
@@ -25,7 +25,8 @@ abstract class AbstractParser implements ParserInterface
      * @param string $str
      * @return array|bool   false on failure
      */
-    final public function parse($str) {
+    final public function parse($str)
+    {
         return $this->doParse($this->filterString($str));
     }
 
@@ -39,7 +40,8 @@ abstract class AbstractParser implements ParserInterface
      * @param string $str
      * @return string
      */
-    final protected function filterString($str) {
+    final protected function filterString($str)
+    {
         $str = trim($str);
         $str = rtrim($str, ';');
         $str = str_replace(["\n", "\r"], ' ', $str);
@@ -65,7 +67,8 @@ abstract class AbstractParser implements ParserInterface
      * @param string $subject
      * @return array|bool
      */
-    final protected function match($pattern, $subject) {
+    final protected function match($pattern, $subject)
+    {
         $pattern = str_replace(array_keys($this->placeholders), array_values($this->placeholders), $pattern);
 
         $matches = [];

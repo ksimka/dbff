@@ -12,7 +12,8 @@ class DatabaseParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerDefs() {
+    public function providerDefs()
+    {
         return [
             [
                 'CREATE DATABASE db',
@@ -60,7 +61,8 @@ class DatabaseParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerErrors() {
+    public function providerErrors()
+    {
         return [
             [''],
             ['create database db 25'],
@@ -71,8 +73,8 @@ class DatabaseParserTest extends AbstractParserTest
     /**
      * @return DatabaseParser
      */
-    protected function createParser() {
+    protected function createParser()
+    {
         return new DatabaseParser();
     }
 }
- 

@@ -31,7 +31,8 @@ class EnumProps extends DbffableElement
      * @param $charset
      * @param $collate
      */
-    public function __construct(array $values, $charset, $collate) {
+    public function __construct(array $values, $charset, $collate)
+    {
         // order doesn't matter, so sort
         sort($values);
         $this->values = $values;
@@ -42,14 +43,16 @@ class EnumProps extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->values, $this->charset, $this->collate];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['values', 'charset', 'collate'];
     }
 }

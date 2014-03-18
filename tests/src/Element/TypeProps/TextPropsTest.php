@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\TextProps;
 
 /**
  * TextProps element test
- * 
+ *
  * @package Dbff\Element
  */
 class TextPropsTest extends AbstractElementTest

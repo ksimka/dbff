@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\EmptyProps;
 
 /**
  * Type element test
- * 
+ *
  * @package Dbff\Element
  */
 class TypeTest extends AbstractElementTest
@@ -16,7 +16,7 @@ class TypeTest extends AbstractElementTest
      */
     public function providerElements()
     {
-        $emptyProps =  new EmptyProps();
+        $emptyProps = new EmptyProps();
 
         return [
             [

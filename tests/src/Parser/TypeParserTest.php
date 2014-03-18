@@ -4,7 +4,7 @@ namespace Dbff\Parser;
 
 /**
  * Type parser test
- * 
+ *
  * @package Dbff\Parser
  */
 class TypeParserTest extends AbstractParserTest
@@ -12,7 +12,8 @@ class TypeParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerDefs() {
+    public function providerDefs()
+    {
         return [
             [
                 'INT(10) ZEROFILL',
@@ -104,7 +105,8 @@ class TypeParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerErrors() {
+    public function providerErrors()
+    {
         return [
             [''],
             ['unknown'],
@@ -115,7 +117,8 @@ class TypeParserTest extends AbstractParserTest
     /**
      * @return TypeParser
      */
-    protected function createParser() {
+    protected function createParser()
+    {
         return new TypeParser();
     }
 }

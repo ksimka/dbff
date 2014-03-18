@@ -6,7 +6,7 @@ use Dbff\DbffableElement;
 
 /**
  * Properties for binary types
- * 
+ *
  * @package Dbff\Element\TypeProps
  */
 class BinProps extends DbffableElement
@@ -19,21 +19,24 @@ class BinProps extends DbffableElement
     /**
      * @param int $length
      */
-    public function __construct($length) {
+    public function __construct($length)
+    {
         $this->length = (int)$length;
     }
 
     /**
      * @return integer[]
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->length];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['length'];
     }
 }

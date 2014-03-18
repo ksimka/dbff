@@ -14,7 +14,7 @@ use Dbff\Element\Type;
 
 /**
  * Type element builder
- * 
+ *
  * @package Dbff\Builder
  */
 class TypeBuilder implements BuilderInterface
@@ -27,7 +27,8 @@ class TypeBuilder implements BuilderInterface
     /**
      * @param TypeParser $parser
      */
-    public function __construct(TypeParser $parser) {
+    public function __construct(TypeParser $parser)
+    {
         $this->parser = $parser;
     }
 
@@ -37,7 +38,8 @@ class TypeBuilder implements BuilderInterface
      * @param string $str
      * @return Type
      */
-    public function createFromString($str) {
+    public function createFromString($str)
+    {
         $struct = $this->parser->parse($str);
         if (!$struct) {
             return new Type('', new EmptyProps());
@@ -71,10 +73,11 @@ class TypeBuilder implements BuilderInterface
                 return new Type($struct['type'], new BinProps($struct['length']));
             case 'enum':
                 return new Type(
-                    $struct['type'], new EnumProps($struct['values'], $struct['charset'], $struct['collate'])
+                    $struct['type'],
+                    new EnumProps($struct['values'], $struct['charset'], $struct['collate'])
                 );
         }
 
         return new Type('', new EmptyProps());
     }
-} 
+}

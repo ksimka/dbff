@@ -15,7 +15,8 @@ class DatabaseParser extends AbstractParser
      * @param $str
      * @return array|bool
      */
-    protected function doParse($str) {
+    protected function doParse($str)
+    {
         $matches = $this->match(
             "create database (:name)( default character set ([\w\-]+))?( collate (\w+))?",
             $str
@@ -30,4 +31,4 @@ class DatabaseParser extends AbstractParser
             'collate' => !empty($matches[5]) ? (string)$matches[5] : '',
         ];
     }
-} 
+}

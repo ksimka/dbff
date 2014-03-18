@@ -12,7 +12,8 @@ class ColumnParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerDefs() {
+    public function providerDefs()
+    {
         return [
             [
                 '`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT',
@@ -60,7 +61,8 @@ class ColumnParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerErrors() {
+    public function providerErrors()
+    {
         return [
             [''],
         ];
@@ -69,8 +71,8 @@ class ColumnParserTest extends AbstractParserTest
     /**
      * @return ColumnParser
      */
-    protected function createParser() {
+    protected function createParser()
+    {
         return new ColumnParser();
     }
 }
- 

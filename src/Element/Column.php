@@ -6,7 +6,7 @@ use Dbff\DbffableElement;
 
 /**
  * Column element
- * 
+ *
  * @package Dbff\Element
  */
 class Column extends DbffableElement
@@ -38,7 +38,8 @@ class Column extends DbffableElement
      * @param $default
      * @param $autoinc
      */
-    public function __construct($name, Type $type, $null, $default, $autoinc) {
+    public function __construct($name, Type $type, $null, $default, $autoinc)
+    {
         $this->setName($name);
         $this->type = $type;
         $this->null = (bool)$null;
@@ -49,14 +50,16 @@ class Column extends DbffableElement
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['type', 'isnull', 'default', 'isautoinc'];
     }
 
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->type, $this->null, $this->default, $this->autoinc];
     }
 }

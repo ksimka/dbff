@@ -37,7 +37,8 @@ class FloatProps extends DbffableElement
      * @param $unsigned
      * @param $zerofill
      */
-    public function __construct($length, $decimal, $unsigned, $zerofill) {
+    public function __construct($length, $decimal, $unsigned, $zerofill)
+    {
         $this->length = (int)$length;
         $this->decimal = (int)$decimal;
         $this->unsigned = (bool)$unsigned;
@@ -47,14 +48,16 @@ class FloatProps extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->length, $this->decimal, $this->unsigned, $this->zerofill];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['length', 'decimal', 'unsigned', 'zerofill'];
     }
-} 
+}

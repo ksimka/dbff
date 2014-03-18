@@ -4,7 +4,7 @@ namespace Dbff;
 
 /**
  * Any element that can be compared to any other element of this type
- * 
+ *
  * @package Dbff
  */
 abstract class DbffableElement implements Dbffable
@@ -33,7 +33,8 @@ abstract class DbffableElement implements Dbffable
      *
      * @return array
      */
-    final public function getDefinition() {
+    final public function getDefinition()
+    {
         return array_combine($this->getSchema(), $this->getValues());
     }
 
@@ -42,7 +43,8 @@ abstract class DbffableElement implements Dbffable
      *
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
@@ -51,7 +53,8 @@ abstract class DbffableElement implements Dbffable
      *
      * @param $name
      */
-    protected function setName($name) {
+    protected function setName($name)
+    {
         $this->name = $name;
     }
 }

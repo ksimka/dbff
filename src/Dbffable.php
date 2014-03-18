@@ -18,4 +18,4 @@ interface Dbffable
      * @return string
      */
     public function getName();
-} 
+}

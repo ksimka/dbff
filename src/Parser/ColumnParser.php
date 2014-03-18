@@ -6,7 +6,7 @@ namespace Dbff\Parser;
  * Column parser
  *
  * Parses column definition to struct
- * 
+ *
  * @package Dbff\Parser
  */
 class ColumnParser extends AbstractParser
@@ -15,7 +15,8 @@ class ColumnParser extends AbstractParser
      * @param $str
      * @return array|bool
      */
-    protected function doParse($str) {
+    protected function doParse($str)
+    {
         $matches = $this->match(
             "(:name) (.+?)( not null)?( auto_increment)?( default ('(.*?)'|null))?( collate \w+)?( comment '.*')?",
             $str
@@ -38,4 +39,4 @@ class ColumnParser extends AbstractParser
             'default' => !empty($matches[6]) ? trim($matches[6], "'") : '',
         ];
     }
-} 
+}

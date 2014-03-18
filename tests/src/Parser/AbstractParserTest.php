@@ -6,7 +6,7 @@ namespace Dbff\Parser;
  * Common test for all parsers
  *
  * All you need is to define providers with positives and negatives
- * 
+ *
  * @package Dbff\Parser
  */
 abstract class AbstractParserTest extends \PHPUnit_Framework_TestCase
@@ -40,7 +40,8 @@ abstract class AbstractParserTest extends \PHPUnit_Framework_TestCase
     /**
      * Creates parser for test case
      */
-    final protected function setUp() {
+    final protected function setUp()
+    {
         $this->parser = $this->createParser();
     }
 
@@ -52,7 +53,8 @@ abstract class AbstractParserTest extends \PHPUnit_Framework_TestCase
      *
      * @dataProvider providerDefs
      */
-    final public function testParse($def, $expectedResult) {
+    final public function testParse($def, $expectedResult)
+    {
         $result = $this->parser->parse($def);
         $this->assertTrue(is_array($result), 'Actual result is not array');
         foreach ($expectedResult as $key => $value) {
@@ -66,7 +68,8 @@ abstract class AbstractParserTest extends \PHPUnit_Framework_TestCase
      *
      * @dataProvider providerErrors
      */
-    final public function testParseError($str) {
+    final public function testParseError($str)
+    {
         $this->assertFalse($this->parser->parse($str));
     }
-} 
+}

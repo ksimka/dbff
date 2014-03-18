@@ -4,12 +4,13 @@ namespace Dbff\Parser;
 
 /**
  * Table parser test
- * 
+ *
  * @package Dbff\Parser
  */
 class TableParserTest extends AbstractParserTest
 {
-    public function providerDefs() {
+    public function providerDefs()
+    {
         return [
             [
                 "CREATE TABLE `Post` (
@@ -86,7 +87,8 @@ class TableParserTest extends AbstractParserTest
     /**
      * @return array
      */
-    public function providerErrors() {
+    public function providerErrors()
+    {
         return [
             [''],
             ["CREATE TABLE `Post` ()"],
@@ -97,7 +99,8 @@ class TableParserTest extends AbstractParserTest
     /**
      * @return TableParser
      */
-    protected function createParser() {
+    protected function createParser()
+    {
         return new TableParser();
     }
 }

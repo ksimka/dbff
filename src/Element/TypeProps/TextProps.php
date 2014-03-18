@@ -31,7 +31,8 @@ class TextProps extends DbffableElement
      * @param $charset
      * @param $collate
      */
-    public function __construct($binary, $charset, $collate) {
+    public function __construct($binary, $charset, $collate)
+    {
         $this->binary = (bool)$binary;
         $this->charset = (string)$charset;
         $this->collate = (string)$collate;
@@ -40,14 +41,16 @@ class TextProps extends DbffableElement
     /**
      * @return array
      */
-    public function getValues() {
+    public function getValues()
+    {
         return [$this->binary, $this->charset, $this->collate];
     }
 
     /**
      * @return string[]
      */
-    public function getSchema() {
+    public function getSchema()
+    {
         return ['binary', 'charset', 'collate'];
     }
 }

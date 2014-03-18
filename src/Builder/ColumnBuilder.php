@@ -11,7 +11,7 @@ use Dbff\Element\Column;
  * Column element builder
  *
  *
- * 
+ *
  * @package Dbff\Builder
  */
 class ColumnBuilder implements BuilderInterface
@@ -30,7 +30,8 @@ class ColumnBuilder implements BuilderInterface
      * @param ColumnParser $columnParser
      * @param TypeBuilder $typeBuilder
      */
-    public function __construct(ColumnParser $columnParser, TypeBuilder $typeBuilder) {
+    public function __construct(ColumnParser $columnParser, TypeBuilder $typeBuilder)
+    {
         $this->columnParser = $columnParser;
         $this->typeBuilder = $typeBuilder;
     }
@@ -41,7 +42,8 @@ class ColumnBuilder implements BuilderInterface
      * @param $str
      * @return Column
      */
-    public function createFromString($str) {
+    public function createFromString($str)
+    {
         $struct = $this->columnParser->parse($str);
         if (!$struct) {
             return new Column('', new Type('', new EmptyProps()), '', '', '');
@@ -51,4 +53,4 @@ class ColumnBuilder implements BuilderInterface
 
         return new Column($struct['name'], $type, $struct['null'], $struct['default'], $struct['autoinc']);
     }
-} 
+}

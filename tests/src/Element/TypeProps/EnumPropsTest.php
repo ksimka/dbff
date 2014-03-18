@@ -6,7 +6,7 @@ use Dbff\Element\TypeProps\EnumProps;
 
 /**
  * EnumProps element test
- * 
+ *
  * @package Dbff\Element
  */
 class EnumPropsTest extends AbstractElementTest

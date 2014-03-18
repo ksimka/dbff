@@ -8,7 +8,7 @@ use Dbff\Parser\DatabaseParser;
 
 /**
  * Database element builder
- * 
+ *
  * @package Dbff\Builder
  */
 class DatabaseBuilder implements BuilderInterface
@@ -32,7 +32,8 @@ class DatabaseBuilder implements BuilderInterface
      * @param DatabaseParser $databaseParser
      * @param TableBuilder $tableBuilder
      */
-    public function __construct(DatabaseParser $databaseParser, TableBuilder $tableBuilder) {
+    public function __construct(DatabaseParser $databaseParser, TableBuilder $tableBuilder)
+    {
         $this->databaseParser = $databaseParser;
         $this->tableBuilder = $tableBuilder;
     }
@@ -40,11 +41,12 @@ class DatabaseBuilder implements BuilderInterface
     /**
      * Builds database element from string
      *
-     * @param string $str  Must be string, separated by self::SEPARATOR.
+     * @param string $str Must be string, separated by self::SEPARATOR.
      *      1st line is create database statement, others — create table statements
      * @return Database
      */
-    public function createFromString($str) {
+    public function createFromString($str)
+    {
         $lines = explode(self::SEPARATOR, $str);
 
         $struct = $this->databaseParser->parse(array_shift($lines));
@@ -67,7 +69,8 @@ class DatabaseBuilder implements BuilderInterface
      * @param array $tablesStr
      * @return Database
      */
-    public function createFromDbAndTablesStrings($dbStr, array $tablesStr) {
+    public function createFromDbAndTablesStrings($dbStr, array $tablesStr)
+    {
         return $this->createFromString(implode(self::SEPARATOR, array_merge([$dbStr], $tablesStr)));
     }
-} 
+}
