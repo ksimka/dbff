@@ -11,6 +11,16 @@ use Dbff\Element\TypeProps\TextProps;
  */
 class TextPropsTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $props = new TextProps('', '', '');
+
+        $this->assertSame(
+            ['binary' => false, 'charset' => '', 'collate' => ''],
+            $props->getDefinition()
+        );
+    }
+
     /**
      * @return array
      */

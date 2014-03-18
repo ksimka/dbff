@@ -11,6 +11,13 @@ use Dbff\Element\TypeProps\EmptyProps;
  */
 class EmptyPropsTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $props = new EmptyProps();
+
+        $this->assertSame([], $props->getDefinition());
+    }
+
     /**
      * @return array
      */

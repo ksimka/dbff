@@ -12,6 +12,13 @@ use Dbff\DbffableElement;
 abstract class AbstractElementTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * Only for code coverage
+     *
+     * @return void
+     */
+    abstract public function testConstruct();
+
+    /**
      * Test getDefinition
      *
      * @param DbffableElement $element

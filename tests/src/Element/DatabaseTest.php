@@ -11,6 +11,22 @@ use Dbff\DbffableCollection;
  */
 class DatabaseTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $emptyTables = new DbffableCollection([]);
+
+        $database = new Database('', $emptyTables, '', '');
+
+        $this->assertSame(
+            [
+                'tables' => $emptyTables,
+                'charset' => '',
+                'collate' => '',
+            ],
+            $database->getDefinition()
+        );
+    }
+
     /**
      * @return array
      */

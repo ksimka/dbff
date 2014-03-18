@@ -11,6 +11,26 @@ use Dbff\DbffableCollection;
  */
 class TableTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $emptyColumns = new DbffableCollection([]);
+        $emptyIndices = new DbffableCollection([]);
+
+        $table = new Table('', $emptyColumns, $emptyIndices, '', '', '', '', '');
+
+        $this->assertSame(
+            [
+                'columns' => $emptyColumns,
+                'indices' => $emptyIndices,
+                'charset' => '',
+                'collate' => '',
+                'engine' => '',
+                'autoinc_val' => 0,
+            ],
+            $table->getDefinition()
+        );
+    }
+
     /**
      * @return array
      */

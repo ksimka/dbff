@@ -11,6 +11,13 @@ use Dbff\Element\TypeProps\EnumProps;
  */
 class EnumPropsTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $props = new EnumProps([], '', '');
+
+        $this->assertSame(['values' => [], 'charset' => '', 'collate' => ''], $props->getDefinition());
+    }
+
     /**
      * @return array
      */

@@ -11,6 +11,23 @@ use Dbff\Element\TypeProps\EmptyProps;
  */
 class ColumnTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $emptyType = new Type('', new EmptyProps());
+
+        $column = new Column('', $emptyType, '', '', '');
+
+        $this->assertSame(
+            [
+                'type' => $emptyType,
+                'isnull' => false,
+                'default' => '',
+                'isautoinc' => false,
+            ],
+            $column->getDefinition()
+        );
+    }
+
     /**
      * @return array
      */

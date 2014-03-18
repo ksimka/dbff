@@ -11,6 +11,16 @@ use Dbff\Element\TypeProps\IntProps;
  */
 class IntPropsTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $props = new IntProps('', '', '');
+
+        $this->assertSame(
+            ['length' => 0, 'unsigned' => false, 'zerofill' => false],
+            $props->getDefinition()
+        );
+    }
+
     /**
      * @return array
      */

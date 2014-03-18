@@ -11,6 +11,13 @@ use Dbff\Element\TypeProps\BinProps;
  */
 class BinPropsTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $props = new BinProps('');
+
+        $this->assertSame(['length' => 0], $props->getDefinition());
+    }
+
     /**
      * @return array
      */

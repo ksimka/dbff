@@ -9,6 +9,20 @@ namespace Dbff\Element;
  */
 class IndexTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $index = new Index('', '', [], '');
+
+        $this->assertSame(
+            [
+                'type' => '',
+                'columns' => [],
+                'algo' => '',
+            ],
+            $index->getDefinition()
+        );
+    }
+
     /**
      * @return array
      */

@@ -11,6 +11,16 @@ use Dbff\Element\TypeProps\FloatProps;
  */
 class FloatPropsTest extends AbstractElementTest
 {
+    public function testConstruct()
+    {
+        $props = new FloatProps('', '', '', '');
+
+        $this->assertSame(
+            ['length' => 0, 'decimal' => 0, 'unsigned' => false, 'zerofill' => false],
+            $props->getDefinition()
+        );
+    }
+
     /**
      * @return array
      */
