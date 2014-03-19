@@ -15,10 +15,9 @@ class IntPropsTest extends AbstractElementTest
     {
         $props = new IntProps('', '', '');
 
-        $this->assertSame(
-            ['length' => 0, 'unsigned' => false, 'zerofill' => false],
-            $props->getDefinition()
-        );
+        $this->assertSame(0, $props->getLength());
+        $this->assertSame(false, $props->isUnsigned());
+        $this->assertSame(false, $props->isZerofill());
     }
 
     /**

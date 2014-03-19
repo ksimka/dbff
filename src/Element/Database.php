@@ -28,10 +28,10 @@ class Database extends DbffableElement
     private $collate;
 
     /**
-     * @param $name
+     * @param string $name
      * @param DbffableCollection $tables
-     * @param $charset
-     * @param $collate
+     * @param string $charset
+     * @param string $collate
      */
     public function __construct($name, DbffableCollection $tables, $charset, $collate)
     {
@@ -55,5 +55,29 @@ class Database extends DbffableElement
     public function getSchema()
     {
         return ['tables', 'charset', 'collate'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getCharset()
+    {
+        return $this->charset;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCollate()
+    {
+        return $this->collate;
+    }
+
+    /**
+     * @return \Dbff\DbffableCollection
+     */
+    public function getTables()
+    {
+        return $this->tables;
     }
 }

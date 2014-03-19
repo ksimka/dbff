@@ -12,7 +12,7 @@ use Dbff\DbffableElement;
 class EnumProps extends DbffableElement
 {
     /**
-     * @var array
+     * @var string[]
      */
     private $values;
 
@@ -27,15 +27,15 @@ class EnumProps extends DbffableElement
     private $collate;
 
     /**
-     * @param $values
-     * @param $charset
-     * @param $collate
+     * @param string[] $values
+     * @param string $charset
+     * @param string $collate
      */
     public function __construct(array $values, $charset, $collate)
     {
         // order doesn't matter, so sort
         sort($values);
-        $this->values = $values;
+        $this->values = array_map('strval', $values);
         $this->charset = (string)$charset;
         $this->collate = (string)$collate;
     }
@@ -54,5 +54,29 @@ class EnumProps extends DbffableElement
     public function getSchema()
     {
         return ['values', 'charset', 'collate'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getCharset()
+    {
+        return $this->charset;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCollate()
+    {
+        return $this->collate;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getEnumValues()
+    {
+        return $this->values;
     }
 }

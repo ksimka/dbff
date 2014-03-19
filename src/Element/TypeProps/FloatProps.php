@@ -32,10 +32,10 @@ class FloatProps extends DbffableElement
     private $zerofill;
 
     /**
-     * @param $length
-     * @param $decimal
-     * @param $unsigned
-     * @param $zerofill
+     * @param int $length
+     * @param int $decimal
+     * @param bool $unsigned
+     * @param bool $zerofill
      */
     public function __construct($length, $decimal, $unsigned, $zerofill)
     {
@@ -59,5 +59,37 @@ class FloatProps extends DbffableElement
     public function getSchema()
     {
         return ['length', 'decimal', 'unsigned', 'zerofill'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getDecimal()
+    {
+        return $this->decimal;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUnsigned()
+    {
+        return $this->unsigned;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isZerofill()
+    {
+        return $this->zerofill;
     }
 }

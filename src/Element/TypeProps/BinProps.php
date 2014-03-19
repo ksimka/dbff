@@ -39,4 +39,12 @@ class BinProps extends DbffableElement
     {
         return ['length'];
     }
+
+    /**
+     * @return int
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
 }

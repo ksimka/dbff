@@ -17,15 +17,10 @@ class ColumnTest extends AbstractElementTest
 
         $column = new Column('', $emptyType, '', '', '');
 
-        $this->assertSame(
-            [
-                'type' => $emptyType,
-                'isnull' => false,
-                'default' => '',
-                'isautoinc' => false,
-            ],
-            $column->getDefinition()
-        );
+        $this->assertSame($emptyType, $column->getType());
+        $this->assertSame(false, $column->isNullable());
+        $this->assertSame('', $column->getDefault());
+        $this->assertSame(false, $column->isAutoincrement());
     }
 
     /**

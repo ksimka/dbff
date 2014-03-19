@@ -27,9 +27,9 @@ class CharProps extends DbffableElement
     private $collate;
 
     /**
-     * @param $length
-     * @param $charset
-     * @param $collate
+     * @param int $length
+     * @param string $charset
+     * @param string $collate
      */
     public function __construct($length, $charset, $collate)
     {
@@ -52,5 +52,29 @@ class CharProps extends DbffableElement
     public function getSchema()
     {
         return ['length', 'charset', 'collate'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getCharset()
+    {
+        return $this->charset;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCollate()
+    {
+        return $this->collate;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLength()
+    {
+        return $this->length;
     }
 }

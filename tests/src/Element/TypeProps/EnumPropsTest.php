@@ -15,7 +15,9 @@ class EnumPropsTest extends AbstractElementTest
     {
         $props = new EnumProps([], '', '');
 
-        $this->assertSame(['values' => [], 'charset' => '', 'collate' => ''], $props->getDefinition());
+        $this->assertSame([], $props->getEnumValues());
+        $this->assertSame('', $props->getCharset());
+        $this->assertSame('', $props->getCollate());
     }
 
     /**

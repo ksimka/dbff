@@ -13,14 +13,9 @@ class IndexTest extends AbstractElementTest
     {
         $index = new Index('', '', [], '');
 
-        $this->assertSame(
-            [
-                'type' => '',
-                'columns' => [],
-                'algo' => '',
-            ],
-            $index->getDefinition()
-        );
+        $this->assertSame('', $index->getType());
+        $this->assertSame([], $index->getColumns());
+        $this->assertSame('', $index->getAlgo());
     }
 
     /**

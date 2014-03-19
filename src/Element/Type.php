@@ -24,12 +24,12 @@ class Type extends DbffableElement
     private $props;
 
     /**
-     * @param $type
+     * @param string $type
      * @param DbffableElement $props
      */
     public function __construct($type, DbffableElement $props)
     {
-        $this->type = $type;
+        $this->type = (string)$type;
         $this->props = $props;
     }
 
@@ -47,5 +47,21 @@ class Type extends DbffableElement
     public function getSchema()
     {
         return ['name', 'props'];
+    }
+
+    /**
+     * @return \Dbff\DbffableElement
+     */
+    public function getProps()
+    {
+        return $this->props;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

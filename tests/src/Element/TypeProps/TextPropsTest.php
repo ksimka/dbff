@@ -15,10 +15,9 @@ class TextPropsTest extends AbstractElementTest
     {
         $props = new TextProps('', '', '');
 
-        $this->assertSame(
-            ['binary' => false, 'charset' => '', 'collate' => ''],
-            $props->getDefinition()
-        );
+        $this->assertSame(false, $props->isBinary());
+        $this->assertSame('', $props->getCharset());
+        $this->assertSame('', $props->getCollate());
     }
 
     /**

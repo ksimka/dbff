@@ -27,9 +27,9 @@ class TextProps extends DbffableElement
     private $collate;
 
     /**
-     * @param $binary
-     * @param $charset
-     * @param $collate
+     * @param bool $binary
+     * @param string $charset
+     * @param string $collate
      */
     public function __construct($binary, $charset, $collate)
     {
@@ -52,5 +52,29 @@ class TextProps extends DbffableElement
     public function getSchema()
     {
         return ['binary', 'charset', 'collate'];
+    }
+
+    /**
+     * @return bool
+     */
+    public function isBinary()
+    {
+        return $this->binary;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCharset()
+    {
+        return $this->charset;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCollate()
+    {
+        return $this->collate;
     }
 }

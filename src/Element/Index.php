@@ -17,7 +17,7 @@ class Index extends DbffableElement
     private $type;
 
     /**
-     * @var array
+     * @var string[]
      */
     private $columns;
 
@@ -26,6 +26,12 @@ class Index extends DbffableElement
      */
     private $algo;
 
+    /**
+     * @param string $name
+     * @param string $type
+     * @param string[] $columns
+     * @param string $algo
+     */
     public function __construct($name, $type, array $columns, $algo)
     {
         $this->setName($name);
@@ -48,5 +54,29 @@ class Index extends DbffableElement
     public function getSchema()
     {
         return ['type', 'columns', 'algo'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlgo()
+    {
+        return $this->algo;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getColumns()
+    {
+        return $this->columns;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

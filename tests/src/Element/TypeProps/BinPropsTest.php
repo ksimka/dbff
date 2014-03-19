@@ -15,7 +15,7 @@ class BinPropsTest extends AbstractElementTest
     {
         $props = new BinProps('');
 
-        $this->assertSame(['length' => 0], $props->getDefinition());
+        $this->assertSame(0, $props->getLength());
     }
 
     /**

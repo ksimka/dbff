@@ -15,7 +15,9 @@ class CharPropsTest extends AbstractElementTest
     {
         $props = new CharProps('', '', '');
 
-        $this->assertSame(['length' => 0, 'charset' => '', 'collate' => ''], $props->getDefinition());
+        $this->assertSame(0, $props->getLength());
+        $this->assertSame('', $props->getCharset());
+        $this->assertSame('', $props->getCollate());
     }
 
     /**

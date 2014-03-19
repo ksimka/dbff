@@ -17,7 +17,8 @@ class TypeTest extends AbstractElementTest
 
         $type = new Type('', $emptyProps);
 
-        $this->assertSame(['name' => '', 'props' => $emptyProps], $type->getDefinition());
+        $this->assertSame('', $type->getType());
+        $this->assertSame($emptyProps, $type->getProps());
     }
 
     /**

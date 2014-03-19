@@ -15,10 +15,10 @@ class FloatPropsTest extends AbstractElementTest
     {
         $props = new FloatProps('', '', '', '');
 
-        $this->assertSame(
-            ['length' => 0, 'decimal' => 0, 'unsigned' => false, 'zerofill' => false],
-            $props->getDefinition()
-        );
+        $this->assertSame(0, $props->getLength());
+        $this->assertSame(0, $props->getDecimal());
+        $this->assertSame(false, $props->isUnsigned());
+        $this->assertSame(false, $props->isZerofill());
     }
 
     /**

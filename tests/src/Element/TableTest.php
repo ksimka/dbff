@@ -18,17 +18,12 @@ class TableTest extends AbstractElementTest
 
         $table = new Table('', $emptyColumns, $emptyIndices, '', '', '', '', '');
 
-        $this->assertSame(
-            [
-                'columns' => $emptyColumns,
-                'indices' => $emptyIndices,
-                'charset' => '',
-                'collate' => '',
-                'engine' => '',
-                'autoinc_val' => 0,
-            ],
-            $table->getDefinition()
-        );
+        $this->assertSame($emptyColumns, $table->getColumns());
+        $this->assertSame($emptyIndices, $table->getIndices());
+        $this->assertSame('', $table->getCharset());
+        $this->assertSame('', $table->getCollate());
+        $this->assertSame('', $table->getEngine());
+        $this->assertSame(0, $table->getAutoincrementValue());
     }
 
     /**

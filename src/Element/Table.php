@@ -48,14 +48,14 @@ class Table extends DbffableElement
     private $autoincValue;
 
     /**
-     * @param $name
+     * @param string $name
      * @param DbffableCollection $columns
      * @param DbffableCollection $indices
-     * @param $temporary
-     * @param $charset
-     * @param $collate
-     * @param $engine
-     * @param $autoincValue
+     * @param bool $temporary
+     * @param string $charset
+     * @param string $collate
+     * @param string $engine
+     * @param int $autoincValue
      */
     public function __construct(
         $name,
@@ -91,5 +91,61 @@ class Table extends DbffableElement
     public function getSchema()
     {
         return ['columns', 'indices', 'charset', 'collate', 'engine', 'autoinc_val'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getAutoincrementValue()
+    {
+        return $this->autoincValue;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCharset()
+    {
+        return $this->charset;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCollate()
+    {
+        return $this->collate;
+    }
+
+    /**
+     * @return \Dbff\DbffableCollection
+     */
+    public function getColumns()
+    {
+        return $this->columns;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEngine()
+    {
+        return $this->engine;
+    }
+
+    /**
+     * @return \Dbff\DbffableCollection
+     */
+    public function getIndices()
+    {
+        return $this->indices;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTemporary()
+    {
+        return $this->temporary;
     }
 }

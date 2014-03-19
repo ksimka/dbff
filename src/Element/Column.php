@@ -32,11 +32,11 @@ class Column extends DbffableElement
     private $autoinc;
 
     /**
-     * @param $name
+     * @param string $name
      * @param Type $type
-     * @param $null
-     * @param $default
-     * @param $autoinc
+     * @param bool $null
+     * @param string $default
+     * @param bool $autoinc
      */
     public function __construct($name, Type $type, $null, $default, $autoinc)
     {
@@ -61,5 +61,37 @@ class Column extends DbffableElement
     public function getValues()
     {
         return [$this->type, $this->null, $this->default, $this->autoinc];
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAutoincrement()
+    {
+        return $this->autoinc;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefault()
+    {
+        return $this->default;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isNullable()
+    {
+        return $this->null;
+    }
+
+    /**
+     * @return \Dbff\Element\Type
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

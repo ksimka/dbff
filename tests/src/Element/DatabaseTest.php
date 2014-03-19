@@ -17,14 +17,9 @@ class DatabaseTest extends AbstractElementTest
 
         $database = new Database('', $emptyTables, '', '');
 
-        $this->assertSame(
-            [
-                'tables' => $emptyTables,
-                'charset' => '',
-                'collate' => '',
-            ],
-            $database->getDefinition()
-        );
+        $this->assertSame($emptyTables, $database->getTables());
+        $this->assertSame('', $database->getCharset());
+        $this->assertSame('', $database->getCollate());
     }
 
     /**
