@@ -3,6 +3,7 @@
 namespace Dbff\Builder;
 
 use Dbff\DbffableCollection;
+use Dbff\Element\Charset;
 use Dbff\Element\Database;
 use Dbff\Parser\DatabaseParser;
 
@@ -51,7 +52,7 @@ class DatabaseBuilder implements BuilderInterface
 
         $struct = $this->databaseParser->parse(array_shift($lines));
         if (!$struct) {
-            return new Database('', new DbffableCollection([]), '', '');
+            return new Database('', new DbffableCollection([]), new Charset());
         }
 
         $tables = new DbffableCollection([]);
@@ -59,7 +60,7 @@ class DatabaseBuilder implements BuilderInterface
             $tables->add($this->tableBuilder->createFromString($tableStr));
         }
 
-        return new Database($struct['name'], $tables, $struct['charset'], $struct['collate']);
+        return new Database($struct['name'], $tables, new Charset($struct['charset'], $struct['collate']));
     }
 
     /**

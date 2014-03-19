@@ -14,12 +14,12 @@ class DatabaseTest extends AbstractElementTest
     public function testConstruct()
     {
         $emptyTables = new DbffableCollection([]);
+        $emptyCharset = new Charset();
 
-        $database = new Database('', $emptyTables, '', '');
+        $database = new Database('', $emptyTables, $emptyCharset);
 
         $this->assertSame($emptyTables, $database->getTables());
-        $this->assertSame('', $database->getCharset());
-        $this->assertSame('', $database->getCollate());
+        $this->assertSame($emptyCharset, $database->getCharset());
     }
 
     /**
@@ -31,7 +31,7 @@ class DatabaseTest extends AbstractElementTest
 
         return [
             [
-                new Database('', $emptyTables, '', ''),
+                new Database('', $emptyTables, new Charset()),
                 [
                     'tables' => $emptyTables,
                     'charset' => '',
@@ -40,7 +40,7 @@ class DatabaseTest extends AbstractElementTest
                 '',
             ],
             [
-                new Database('db22', $emptyTables, 'some-cs', 'some_cl'),
+                new Database('db22', $emptyTables, new Charset('some-cs', 'some_cl')),
                 [
                     'tables' => $emptyTables,
                     'charset' => 'some-cs',

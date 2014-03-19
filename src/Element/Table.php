@@ -28,14 +28,9 @@ class Table extends DbffableElement
     private $temporary;
 
     /**
-     * @var string
+     * @var Charset
      */
     private $charset;
-
-    /**
-     * @var string
-     */
-    private $collate;
 
     /**
      * @var string
@@ -52,8 +47,7 @@ class Table extends DbffableElement
      * @param DbffableCollection $columns
      * @param DbffableCollection $indices
      * @param bool $temporary
-     * @param string $charset
-     * @param string $collate
+     * @param Charset $charset
      * @param string $engine
      * @param int $autoincValue
      */
@@ -62,8 +56,7 @@ class Table extends DbffableElement
         DbffableCollection $columns,
         DbffableCollection $indices,
         $temporary,
-        $charset,
-        $collate,
+        Charset $charset,
         $engine,
         $autoincValue
     ) {
@@ -71,8 +64,7 @@ class Table extends DbffableElement
         $this->columns = $columns;
         $this->indices = $indices;
         $this->temporary = (bool)$temporary;
-        $this->charset = (string)$charset;
-        $this->collate = (string)$collate;
+        $this->charset = $charset;
         $this->engine = (string)$engine;
         $this->autoincValue = (int)$autoincValue;
     }
@@ -82,7 +74,14 @@ class Table extends DbffableElement
      */
     public function getValues()
     {
-        return [$this->columns, $this->indices, $this->charset, $this->collate, $this->engine, $this->autoincValue];
+        return [
+            $this->columns,
+            $this->indices,
+            $this->charset->getCharset(),
+            $this->charset->getCollate(),
+            $this->engine,
+            $this->autoincValue
+        ];
     }
 
     /**
@@ -102,19 +101,11 @@ class Table extends DbffableElement
     }
 
     /**
-     * @return string
+     * @return Charset
      */
     public function getCharset()
     {
         return $this->charset;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCollate()
-    {
-        return $this->collate;
     }
 
     /**

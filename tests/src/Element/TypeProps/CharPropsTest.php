@@ -13,11 +13,12 @@ class CharPropsTest extends AbstractElementTest
 {
     public function testConstruct()
     {
-        $props = new CharProps('', '', '');
+        $emptyCharset = new Charset();
+
+        $props = new CharProps('', $emptyCharset);
 
         $this->assertSame(0, $props->getLength());
-        $this->assertSame('', $props->getCharset());
-        $this->assertSame('', $props->getCollate());
+        $this->assertSame($emptyCharset, $props->getCharset());
     }
 
     /**
@@ -27,11 +28,11 @@ class CharPropsTest extends AbstractElementTest
     {
         return [
             [
-                new CharProps('', '', ''),
+                new CharProps('', new Charset()),
                 ['length' => 0, 'charset' => '', 'collate' => ''],
             ],
             [
-                new CharProps('15', 'utf8', 'coll'),
+                new CharProps('15', new Charset('utf8', 'coll')),
                 ['length' => 15, 'charset' => 'utf8', 'collate' => 'coll'],
             ],
         ];

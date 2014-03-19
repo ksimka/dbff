@@ -3,6 +3,7 @@
 namespace Dbff\Element\TypeProps;
 
 use Dbff\DbffableElement;
+use Dbff\Element\Charset;
 
 /**
  * Properties for text types
@@ -17,25 +18,19 @@ class TextProps extends DbffableElement
     private $binary;
 
     /**
-     * @var string
+     * @var Charset
      */
     private $charset;
 
     /**
-     * @var string
-     */
-    private $collate;
-
-    /**
      * @param bool $binary
-     * @param string $charset
-     * @param string $collate
+     * @param Charset $charset
+     * @internal param string $collate
      */
-    public function __construct($binary, $charset, $collate)
+    public function __construct($binary, Charset $charset)
     {
         $this->binary = (bool)$binary;
-        $this->charset = (string)$charset;
-        $this->collate = (string)$collate;
+        $this->charset = $charset;
     }
 
     /**
@@ -43,7 +38,7 @@ class TextProps extends DbffableElement
      */
     public function getValues()
     {
-        return [$this->binary, $this->charset, $this->collate];
+        return [$this->binary, $this->charset->getCharset(), $this->charset->getCollate()];
     }
 
     /**
@@ -63,18 +58,10 @@ class TextProps extends DbffableElement
     }
 
     /**
-     * @return string
+     * @return Charset
      */
     public function getCharset()
     {
         return $this->charset;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCollate()
-    {
-        return $this->collate;
     }
 }

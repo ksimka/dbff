@@ -3,6 +3,7 @@
 namespace Dbff\Element\TypeProps;
 
 use Dbff\DbffableElement;
+use Dbff\Element\Charset;
 
 /**
  * Properties for enum types
@@ -17,27 +18,21 @@ class EnumProps extends DbffableElement
     private $values;
 
     /**
-     * @var string
+     * @var Charset
      */
     private $charset;
 
     /**
-     * @var string
-     */
-    private $collate;
-
-    /**
      * @param string[] $values
-     * @param string $charset
-     * @param string $collate
+     * @param Charset $charset
+     * @internal param string $collate
      */
-    public function __construct(array $values, $charset, $collate)
+    public function __construct(array $values, Charset $charset)
     {
         // order doesn't matter, so sort
         sort($values);
         $this->values = array_map('strval', $values);
-        $this->charset = (string)$charset;
-        $this->collate = (string)$collate;
+        $this->charset = $charset;
     }
 
     /**
@@ -45,7 +40,7 @@ class EnumProps extends DbffableElement
      */
     public function getValues()
     {
-        return [$this->values, $this->charset, $this->collate];
+        return [$this->values, $this->charset->getCharset(), $this->charset->getCollate()];
     }
 
     /**
@@ -57,19 +52,11 @@ class EnumProps extends DbffableElement
     }
 
     /**
-     * @return string
+     * @return Charset
      */
     public function getCharset()
     {
         return $this->charset;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCollate()
-    {
-        return $this->collate;
     }
 
     /**

@@ -13,11 +13,12 @@ class TextPropsTest extends AbstractElementTest
 {
     public function testConstruct()
     {
-        $props = new TextProps('', '', '');
+        $emptyCharset = new Charset();
+
+        $props = new TextProps('', $emptyCharset);
 
         $this->assertSame(false, $props->isBinary());
-        $this->assertSame('', $props->getCharset());
-        $this->assertSame('', $props->getCollate());
+        $this->assertSame($emptyCharset, $props->getCharset());
     }
 
     /**
@@ -27,11 +28,11 @@ class TextPropsTest extends AbstractElementTest
     {
         return [
             [
-                new TextProps('', '', ''),
+                new TextProps('', new Charset()),
                 ['binary' => false, 'charset' => '', 'collate' => ''],
             ],
             [
-                new TextProps('binary', 'cs20', 'col11'),
+                new TextProps('binary', new Charset('cs20', 'col11')),
                 ['binary' => true, 'charset' => 'cs20', 'collate' => 'col11'],
             ],
         ];

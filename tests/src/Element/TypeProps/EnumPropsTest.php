@@ -13,11 +13,12 @@ class EnumPropsTest extends AbstractElementTest
 {
     public function testConstruct()
     {
-        $props = new EnumProps([], '', '');
+        $emptyCharset = new Charset();
+
+        $props = new EnumProps([], $emptyCharset);
 
         $this->assertSame([], $props->getEnumValues());
-        $this->assertSame('', $props->getCharset());
-        $this->assertSame('', $props->getCollate());
+        $this->assertSame($emptyCharset, $props->getCharset());
     }
 
     /**
@@ -27,11 +28,11 @@ class EnumPropsTest extends AbstractElementTest
     {
         return [
             [
-                new EnumProps([], '', ''),
+                new EnumProps([], new Charset()),
                 ['values' => [], 'charset' => '', 'collate' => ''],
             ],
             [
-                new EnumProps(['val1', 'val2'], 'cs', 'cl'),
+                new EnumProps(['val1', 'val2'], new Charset('cs', 'cl')),
                 ['values' => ['val1', 'val2'], 'charset' => 'cs', 'collate' => 'cl'],
             ],
         ];

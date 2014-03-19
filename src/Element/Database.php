@@ -18,27 +18,21 @@ class Database extends DbffableElement
     private $tables;
 
     /**
-     * @var string
+     * @var Charset
      */
     private $charset;
 
     /**
-     * @var string
-     */
-    private $collate;
-
-    /**
      * @param string $name
      * @param DbffableCollection $tables
-     * @param string $charset
-     * @param string $collate
+     * @param \Dbff\Element\Charset $charset
+     * @internal param string $collate
      */
-    public function __construct($name, DbffableCollection $tables, $charset, $collate)
+    public function __construct($name, DbffableCollection $tables, Charset $charset)
     {
         $this->setName($name);
         $this->tables = $tables;
-        $this->charset = (string)$charset;
-        $this->collate = (string)$collate;
+        $this->charset = $charset;
     }
 
     /**
@@ -46,7 +40,7 @@ class Database extends DbffableElement
      */
     public function getValues()
     {
-        return [$this->tables, $this->charset, $this->collate];
+        return [$this->tables, $this->charset->getCharset(), $this->charset->getCollate()];
     }
 
     /**
@@ -58,19 +52,11 @@ class Database extends DbffableElement
     }
 
     /**
-     * @return string
+     * @return Charset
      */
     public function getCharset()
     {
         return $this->charset;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCollate()
-    {
-        return $this->collate;
     }
 
     /**

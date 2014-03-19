@@ -15,13 +15,13 @@ class TableTest extends AbstractElementTest
     {
         $emptyColumns = new DbffableCollection([]);
         $emptyIndices = new DbffableCollection([]);
+        $emptyCharset = new Charset();
 
-        $table = new Table('', $emptyColumns, $emptyIndices, '', '', '', '', '');
+        $table = new Table('', $emptyColumns, $emptyIndices, '', $emptyCharset, '', '');
 
         $this->assertSame($emptyColumns, $table->getColumns());
         $this->assertSame($emptyIndices, $table->getIndices());
-        $this->assertSame('', $table->getCharset());
-        $this->assertSame('', $table->getCollate());
+        $this->assertSame($emptyCharset, $table->getCharset());
         $this->assertSame('', $table->getEngine());
         $this->assertSame(0, $table->getAutoincrementValue());
     }
@@ -36,7 +36,7 @@ class TableTest extends AbstractElementTest
 
         return [
             [
-                new Table('', $emptyColumns, $emptyIndices, '', '', '', '', ''),
+                new Table('', $emptyColumns, $emptyIndices, '', new Charset(), '', ''),
                 [
                     'columns' => $emptyColumns,
                     'indices' => $emptyIndices,
@@ -48,7 +48,15 @@ class TableTest extends AbstractElementTest
                 '',
             ],
             [
-                new Table('user', $emptyColumns, $emptyIndices, 'temp', 'char61', 'col_90', 'InnoInno', '100500'),
+                new Table(
+                    'user',
+                    $emptyColumns,
+                    $emptyIndices,
+                    'temp',
+                    new Charset('char61', 'col_90'),
+                    'InnoInno',
+                    '100500'
+                ),
                 [
                     'columns' => $emptyColumns,
                     'indices' => $emptyIndices,

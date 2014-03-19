@@ -3,6 +3,7 @@
 namespace Dbff\Element\TypeProps;
 
 use Dbff\DbffableElement;
+use Dbff\Element\Charset;
 
 /**
  * Properties for char types
@@ -17,25 +18,19 @@ class CharProps extends DbffableElement
     private $length;
 
     /**
-     * @var string
+     * @var Charset
      */
     private $charset;
 
     /**
-     * @var string
-     */
-    private $collate;
-
-    /**
      * @param int $length
-     * @param string $charset
-     * @param string $collate
+     * @param Charset $charset
+     * @internal param string $collate
      */
-    public function __construct($length, $charset, $collate)
+    public function __construct($length, Charset $charset)
     {
         $this->length = (int)$length;
-        $this->charset = (string)$charset;
-        $this->collate = (string)$collate;
+        $this->charset = $charset;
     }
 
     /**
@@ -43,7 +38,7 @@ class CharProps extends DbffableElement
      */
     public function getValues()
     {
-        return [$this->length, $this->charset, $this->collate];
+        return [$this->length, $this->charset->getCharset(), $this->charset->getCollate()];
     }
 
     /**
@@ -55,19 +50,11 @@ class CharProps extends DbffableElement
     }
 
     /**
-     * @return string
+     * @return Charset
      */
     public function getCharset()
     {
         return $this->charset;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCollate()
-    {
-        return $this->collate;
     }
 
     /**

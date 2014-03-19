@@ -3,6 +3,7 @@
 namespace Dbff\Builder;
 
 use Dbff\DbffableCollection;
+use Dbff\Element\Charset;
 use Dbff\Parser\TableParser;
 use Dbff\Element\Table;
 
@@ -50,7 +51,7 @@ class TableBuilder implements BuilderInterface
     {
         $struct = $this->tableParser->parse($str);
         if (!$struct) {
-            return new Table('', new DbffableCollection([]), new DbffableCollection([]), '', '', '', '', '');
+            return new Table('', new DbffableCollection([]), new DbffableCollection([]), '', new Charset(), '', '');
         }
 
         $columns = new DbffableCollection([]);
@@ -70,8 +71,7 @@ class TableBuilder implements BuilderInterface
             $columns,
             $indices,
             $struct['temporary'],
-            $struct['charset'],
-            $struct['collate'],
+            new Charset($struct['charset'], $struct['collate']),
             $struct['engine'],
             $struct['autoinc']
         );

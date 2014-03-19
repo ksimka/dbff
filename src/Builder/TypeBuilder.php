@@ -2,6 +2,7 @@
 
 namespace Dbff\Builder;
 
+use Dbff\Element\Charset;
 use Dbff\Parser\TypeParser;
 use Dbff\Element\TypeProps\BinProps;
 use Dbff\Element\TypeProps\EmptyProps;
@@ -59,12 +60,12 @@ class TypeBuilder implements BuilderInterface
             case 'char':
                 return new Type(
                     $struct['type'],
-                    new CharProps($struct['length'], $struct['charset'], $struct['collate'])
+                    new CharProps($struct['length'], new Charset($struct['charset'], $struct['collate']))
                 );
             case 'text':
                 return new Type(
                     $struct['type'],
-                    new TextProps($struct['binary'], $struct['charset'], $struct['collate'])
+                    new TextProps($struct['binary'], new Charset($struct['charset'], $struct['collate']))
                 );
             case 'datetime':
             case 'blob':
@@ -74,7 +75,7 @@ class TypeBuilder implements BuilderInterface
             case 'enum':
                 return new Type(
                     $struct['type'],
-                    new EnumProps($struct['values'], $struct['charset'], $struct['collate'])
+                    new EnumProps($struct['values'], new Charset($struct['charset'], $struct['collate']))
                 );
         }
 

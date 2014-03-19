@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use \Dbff\Element\Charset;
 use \Dbff\Element\Column;
 use \Dbff\Element\Type;
 use \Dbff\Element\TypeProps\IntProps;
@@ -28,7 +29,7 @@ $dbffer = new \Dbff\Dbffer();
 // Types
 $type1 = new Type('int', new IntProps(10, true, false));
 $type2 = new Type('int', new IntProps(8, true, true));
-$type3 = new Type('text', new CharProps(100, 'utf-8', ''));
+$type3 = new Type('text', new CharProps(100, new Charset('utf-8')));
 
 showDbff($dbffer->compare($type1, $type2), 'Types');
 /*
@@ -96,8 +97,7 @@ $table1 = new Table(
     new Collection([$col1, $col2]),
     new Collection([]),
     false,
-    '',
-    'utf8_general_ci',
+    new Charset('', 'utf8_general_ci'),
     'InnoDB',
     20
 );
@@ -106,8 +106,7 @@ $table2 = new Table(
     new Collection([$col1, $col2]),
     new Collection([$index]),
     true,
-    '',
-    'utf8_general_ci',
+    new Charset('', 'utf8_general_ci'),
     'InnoDB',
     20
 );
@@ -133,10 +132,18 @@ showDbff($dbffer->compare($table1, $table2), 'Tables');
 
 // Databases
 
-$table3 = new Table('Post2', new Collection([$col1]), new Collection([]), true, '', 'utf8_general_ci', 'MyISAM', 0);
+$table3 = new Table(
+    'Post2',
+    new Collection([$col1]),
+    new Collection([]),
+    true,
+    new Charset('', 'utf8_general_ci'),
+    'MyISAM',
+    0
+);
 
-$db1 = new Database('db1', new Collection([$table1, $table2]), 'utf8', 'utf8_general_ci');
-$db2 = new Database('db2', new Collection([$table1, $table3]), 'utf16', 'utf8_general_ci');
+$db1 = new Database('db1', new Collection([$table1, $table2]), new Charset('utf8', 'utf8_general_ci'));
+$db2 = new Database('db2', new Collection([$table1, $table3]), new Charset('utf16', 'utf8_general_ci'));
 
 showDbff($dbffer->compare($db1, $db2), 'Databases');
 /*
