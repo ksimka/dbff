@@ -3,6 +3,7 @@
 namespace Dbff\Element;
 
 use Dbff\DbffableElement;
+use Dbff\Element\TypeProps\TypePropsInterface;
 
 /**
  * Type element
@@ -50,7 +51,7 @@ class Type extends DbffableElement
     }
 
     /**
-     * @return \Dbff\DbffableElement
+     * @return \Dbff\DbffableElement|TypePropsInterface
      */
     public function getProps()
     {

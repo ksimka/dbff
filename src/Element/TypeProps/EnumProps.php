@@ -10,7 +10,7 @@ use Dbff\Element\Charset;
  *
  * @package Dbff\Element\TypeProps
  */
-class EnumProps extends DbffableElement
+class EnumProps extends DbffableElement implements TypePropsInterface
 {
     /**
      * @var string[]
@@ -65,5 +65,17 @@ class EnumProps extends DbffableElement
     public function getEnumValues()
     {
         return $this->values;
+    }
+
+    /**
+     * Returns typegroup for props
+     *
+     * Typegroup is a group of types with similar properties
+     *
+     * @return string
+     */
+    public function getTypeGroup()
+    {
+        return 'enum';
     }
 }

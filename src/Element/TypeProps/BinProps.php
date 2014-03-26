@@ -9,7 +9,7 @@ use Dbff\DbffableElement;
  *
  * @package Dbff\Element\TypeProps
  */
-class BinProps extends DbffableElement
+class BinProps extends DbffableElement implements TypePropsInterface
 {
     /**
      * @var int
@@ -46,5 +46,17 @@ class BinProps extends DbffableElement
     public function getLength()
     {
         return $this->length;
+    }
+
+    /**
+     * Returns typegroup for props
+     *
+     * Typegroup is a group of types with similar properties
+     *
+     * @return string
+     */
+    public function getTypeGroup()
+    {
+        return 'bin';
     }
 }

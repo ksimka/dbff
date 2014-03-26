@@ -9,7 +9,7 @@ use Dbff\DbffableElement;
  *
  * @package Dbff\Element\TypeProps
  */
-class IntProps extends DbffableElement
+class IntProps extends DbffableElement implements TypePropsInterface
 {
     /**
      * @var int
@@ -76,5 +76,17 @@ class IntProps extends DbffableElement
     public function isZerofill()
     {
         return $this->zerofill;
+    }
+
+    /**
+     * Returns typegroup for props
+     *
+     * Typegroup is a group of types with similar properties
+     *
+     * @return string
+     */
+    public function getTypeGroup()
+    {
+        return 'int';
     }
 }

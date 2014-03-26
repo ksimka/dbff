@@ -9,7 +9,7 @@ use Dbff\DbffableElement;
  *
  * @package Dbff\Element\TypeProps
  */
-class EmptyProps extends DbffableElement
+class EmptyProps extends DbffableElement implements TypePropsInterface
 {
     /**
      * @return array
@@ -25,5 +25,17 @@ class EmptyProps extends DbffableElement
     public function getSchema()
     {
         return [];
+    }
+
+    /**
+     * Returns typegroup for props
+     *
+     * Typegroup is a group of types with similar properties
+     *
+     * @return string
+     */
+    public function getTypeGroup()
+    {
+        return '';
     }
 }

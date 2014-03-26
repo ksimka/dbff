@@ -10,7 +10,7 @@ use Dbff\Element\Charset;
  *
  * @package Dbff\Element\TypeProps
  */
-class CharProps extends DbffableElement
+class CharProps extends DbffableElement implements TypePropsInterface
 {
     /**
      * @var int
@@ -63,5 +63,17 @@ class CharProps extends DbffableElement
     public function getLength()
     {
         return $this->length;
+    }
+
+    /**
+     * Returns typegroup for props
+     *
+     * Typegroup is a group of types with similar properties
+     *
+     * @return string
+     */
+    public function getTypeGroup()
+    {
+        return 'char';
     }
 }

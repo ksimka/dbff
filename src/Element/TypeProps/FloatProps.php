@@ -9,7 +9,7 @@ use Dbff\DbffableElement;
  *
  * @package Dbff\Element\TypeProps
  */
-class FloatProps extends DbffableElement
+class FloatProps extends DbffableElement implements TypePropsInterface
 {
     /**
      * @var int
@@ -91,5 +91,17 @@ class FloatProps extends DbffableElement
     public function isZerofill()
     {
         return $this->zerofill;
+    }
+
+    /**
+     * Returns typegroup for props
+     *
+     * Typegroup is a group of types with similar properties
+     *
+     * @return string
+     */
+    public function getTypeGroup()
+    {
+        return 'float';
     }
 }
