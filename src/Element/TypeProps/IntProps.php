@@ -2,14 +2,12 @@
 
 namespace Dbff\Element\TypeProps;
 
-use Dbff\DbffableElement;
-
 /**
  * Properties for integer types
  *
  * @package Dbff\Element\TypeProps
  */
-class IntProps extends DbffableElement implements TypePropsInterface
+class IntProps extends TypePropsAbstract
 {
     /**
      * @var int

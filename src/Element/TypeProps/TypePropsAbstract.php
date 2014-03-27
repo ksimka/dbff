@@ -2,12 +2,14 @@
 
 namespace Dbff\Element\TypeProps;
 
+use Dbff\DbffableElement;
+
 /**
- * TypeProps interface
+ * Type properties common class
  *
  * @package Dbff\Element\TypeProps
  */
-interface TypePropsInterface
+abstract class TypePropsAbstract extends DbffableElement
 {
     /**
      * Returns typegroup for props
@@ -16,5 +18,5 @@ interface TypePropsInterface
      *
      * @return string
      */
-    public function getTypeGroup();
+    abstract public function getTypeGroup();
 }

@@ -2,7 +2,6 @@
 
 namespace Dbff\Element\TypeProps;
 
-use Dbff\DbffableElement;
 use Dbff\Element\Charset;
 
 /**
@@ -10,7 +9,7 @@ use Dbff\Element\Charset;
  *
  * @package Dbff\Element\TypeProps
  */
-class TextProps extends DbffableElement implements TypePropsInterface
+class TextProps extends TypePropsAbstract
 {
     /**
      * @var bool

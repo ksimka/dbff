@@ -2,14 +2,12 @@
 
 namespace Dbff\Element\TypeProps;
 
-use Dbff\DbffableElement;
-
 /**
  * Properties for float types
  *
  * @package Dbff\Element\TypeProps
  */
-class FloatProps extends DbffableElement implements TypePropsInterface
+class FloatProps extends TypePropsAbstract
 {
     /**
      * @var int

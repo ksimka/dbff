@@ -3,7 +3,7 @@
 namespace Dbff\Element;
 
 use Dbff\DbffableElement;
-use Dbff\Element\TypeProps\TypePropsInterface;
+use Dbff\Element\TypeProps\TypePropsAbstract;
 
 /**
  * Type element
@@ -26,9 +26,9 @@ class Type extends DbffableElement
 
     /**
      * @param string $type
-     * @param DbffableElement $props
+     * @param TypePropsAbstract $props
      */
-    public function __construct($type, DbffableElement $props)
+    public function __construct($type, TypePropsAbstract $props)
     {
         $this->type = (string)$type;
         $this->props = $props;
@@ -51,7 +51,7 @@ class Type extends DbffableElement
     }
 
     /**
-     * @return \Dbff\DbffableElement|TypePropsInterface
+     * @return TypePropsAbstract
      */
     public function getProps()
     {
