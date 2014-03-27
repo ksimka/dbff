@@ -22,7 +22,7 @@ class Column extends DbffableElement
     private $null;
 
     /**
-     * @var string
+     * @var mixed
      */
     private $default;
 
@@ -43,7 +43,7 @@ class Column extends DbffableElement
         $this->setName($name);
         $this->type = $type;
         $this->null = (bool)$null;
-        $this->default = (string)$default;
+        $this->setDefault($type, $default);
         $this->autoinc = (bool)$autoinc;
     }
 
@@ -72,7 +72,7 @@ class Column extends DbffableElement
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     public function getDefault()
     {
@@ -93,5 +93,16 @@ class Column extends DbffableElement
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Sets default with corresponding type
+     *
+     * @param Type $type
+     * @param $default
+     */
+    private function setDefault(Type $type, $default)
+    {
+        $this->default = $type->convertDefault($default);
     }
 }

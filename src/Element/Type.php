@@ -65,4 +65,26 @@ class Type extends DbffableElement
     {
         return $this->type;
     }
+
+    /**
+     * Converts default to corresponding type
+     *
+     * @param mixed $default
+     * @return mixed
+     */
+    public function convertDefault($default)
+    {
+        if (null === $default) {
+            return $default;
+        }
+
+        switch ($this->getProps()->getTypeGroup()) {
+            case 'int':
+                return (int)$default;
+            case 'float':
+                return (float)$default;
+            default:
+                return (string)$default;
+        }
+    }
 }
