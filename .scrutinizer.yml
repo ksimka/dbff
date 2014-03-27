@@ -9,7 +9,8 @@ tools:
         enabled: true
         config:
             standard: psr2
-    php_cpd: true
+    php_cpd: false
+    php_sim: true
     php_cs_fixer:
         enabled: true
         config:
